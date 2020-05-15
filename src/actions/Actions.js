@@ -8,16 +8,16 @@ export const FETCH_MOVIES = "FETCH_MOVIES";
 export const FETCH_MOVIE = "FETCH_MOVIE";
 export const LOADING = "LOADING";
 
-export const searchMovie = (text) => (dispatch) => {
+export const searchMovie = (title) => (dispatch) => {
   dispatch({
     type: SEARCH_MOVIE,
-    payload: text,
+    payload: title,
   });
 };
 
-export const fetchMovies = (text) => (dispatch) => {
+export const fetchMovies = (title) => (dispatch) => {
   axios
-    .get(`https://www.omdbapi.com/?apikey=${API_KEY}&s=${text}`)
+    .get(`https://www.omdbapi.com/?apikey=${API_KEY}&s=${title}`)
     .then((response) =>
       dispatch({
         type: FETCH_MOVIES,

@@ -2,6 +2,7 @@
   "name": "movie-info",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://biancacmatira.github.io/react-movie-info-app",
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
@@ -17,6 +18,7 @@
     "redux-thunk": "^2.3.0"
   },
   "scripts": {
+    "deploy": "npm run build&&gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -38,6 +40,7 @@
     ]
   },
   "devDependencies": {
-    "dotenv": "^8.2.0"
+    "dotenv": "^8.2.0",
+    "gh-pages": "^2.2.0"
   }
 }

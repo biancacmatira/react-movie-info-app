@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { connect } from "react-redux";
+// import {fetchMovies} from '../actions/Actions'
 
 import MovieCard from "./MovieCard";
 
@@ -15,6 +16,14 @@ class MoviesContainer extends React.Component {
             <MovieCard key={i} movie={movie} />
           ))
         : null;
+
+    // useEffect(() => {
+    //   const initFetch = async (title) => {
+    //     setState(await fetchMovies(title));
+    //   };
+    //   initFetch();
+    // }, [setFetchedCountries]);
+
     return <div className="row">{content}</div>;
   }
 }
