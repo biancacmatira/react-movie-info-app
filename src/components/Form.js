@@ -1,22 +1,22 @@
 import React from "react";
 import { connect } from "react-redux";
-import { SearchMovie, fetchMovies } from "../actions/SearchActions";
+import { searchMovie, fetchMovies, setLoading } from "../actions/Actions";
 
 class Form extends React.Component {
   onChange = (e) => {
-    this.props.SearchMovie(e.target.value);
+    this.props.searchMovie(e.target.value);
   };
 
   onSubmit = (e) => {
     e.preventDefault();
     this.props.fetchMovies(this.props.text);
-    console.log(this.props.text);
+    this.props.setLoading();
   };
 
   render() {
     return (
       <div className="formDiv">
-        <form id="searchForm" onSubmit={this.onSubmit}>
+        <form onSubmit={this.onSubmit}>
           <input
             type="text"
             className="formBar"
@@ -37,4 +37,8 @@ const mapStateToProps = (state) => ({
   text: state.movies.text,
 });
 
-export default connect(mapStateToProps, { SearchMovie, fetchMovies })(Form);
+export default connect(mapStateToProps, {
+  searchMovie,
+  fetchMovies,
+  setLoading,
+})(Form);
